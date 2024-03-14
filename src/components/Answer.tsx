@@ -12,7 +12,7 @@ export const Answer: React.FC<Props> = ({answer, isCorrect, nextQuiz}) => {
         <p>正解です</p>
       : 
         <>
-          <p>残念...</p>
+          <p>不正解</p>
           <p>正解は{answer}です</p>
         </>
       }
