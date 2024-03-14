@@ -1,6 +1,7 @@
 import { Answer } from "@/components/Answer"
 import { Quiz } from "@/components/Quiz"
 import { quizData } from "@/data/quizData"
+import { QuizType } from "@/types/quiz"
 import Head from "next/head"
 import Link from "next/link"
 import React, { useState } from "react"

@@ -1,3 +1,5 @@
+import { QuizType } from "@/types/quiz"
+
 type Props = {
   quiz: QuizType[],
   currentQuestion: number,
