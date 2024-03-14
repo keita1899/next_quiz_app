@@ -1,8 +1,43 @@
+import { Answer } from "@/components/Answer"
+import { Quiz } from "@/components/Quiz"
+import { quizData } from "@/data/quizData"
 import Head from "next/head"
 import Link from "next/link"
-import React from "react"
+import React, { useState } from "react"
 
-const Quiz: React.FC = () => {
+const QuizPage: React.FC = () => {
+  const [quizes, setQuizes] = useState<QuizType[]>(quizData)
+  const [currentQuestion, setCurrentQuestion] = useState<number>(0)
+  const [selectedAnswer, setSelectedAnswer] = useState<string>('')
+  // クイズの状態
+  const [quizStatus, setQuizStatus] = useState<'start' | 'answering' | 'answered' | 'finished'>('start')
+  const [isCorrect, setIsCorrect] = useState<boolean>(false)
+  const [score, setScore] = useState<number>(0)
+
+
+  const handleAnswer = (answer: string) => {
+    setSelectedAnswer(answer)
+
+    if (answer === quizes[currentQuestion].correctAnswer ) {
+      setIsCorrect(true)
+      setScore(score + 10)
+    } else {
+      setIsCorrect(false)
+    }
+
+    setQuizStatus('answered')
+
+  }
+
+  const nextQuiz = () => {
+    if (currentQuestion < quizes.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setSelectedAnswer('');
+      setQuizStatus('answering');
+    } else {
+      setQuizStatus('finished');
+    }
+  }
   
   return (
     <>
@@ -12,10 +47,26 @@ const Quiz: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <button>START</button>
-      <Link href='/'>ホームに戻る</Link>
+      {quizStatus === 'start' && (
+        <>
+          <button onClick={() => setQuizStatus('answering')}>START</button>
+          <Link href='/'>ホームに戻る</Link>
+        </>
+      )}
+      {quizStatus === 'answering' && (
+        <Quiz quiz={quizData} currentQuestion={currentQuestion} selectedAnswer={selectedAnswer} handleAnswer={handleAnswer} />
+      )}
+      {quizStatus === 'answered' && (
+        <Answer answer={quizes[currentQuestion].correctAnswer} isCorrect={isCorrect} nextQuiz={nextQuiz} />
+      )}
+      {quizStatus === 'finished' && (
+        <>
+          <p>クイズ終了</p>
+          <p>スコアは{score}点です</p>
+        </>
+      )}
     </>
   )
 }
 
-export default Quiz
+export default QuizPage
