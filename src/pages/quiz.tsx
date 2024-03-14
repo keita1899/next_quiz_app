@@ -1,12 +1,9 @@
-import React from 'react'
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import Link from 'next/link'
+import Head from "next/head"
+import Link from "next/link"
+import React from "react"
 
-const inter = Inter({ subsets: ['latin'] })
-
-const Home: React.FC = () => {
-
+const Quiz: React.FC = () => {
+  
   return (
     <>
       <Head>
@@ -15,9 +12,10 @@ const Home: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Link href='/quiz'>クイズ一覧</Link>
+      <button>START</button>
+      <Link href='/'>ホームに戻る</Link>
     </>
   )
 }
 
-export default Home
+export default Quiz
