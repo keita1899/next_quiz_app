@@ -7,12 +7,12 @@ type Props = {
   handleAnswer: (answer: string) => void
 }
 
-export const Quiz: React.FC<Props> = ({
+export const Quiz = ({
   quiz,
   currentQuestion,
   selectedAnswer,
   handleAnswer,
-}) => {
+}: Props) => {
   return (
     <>
       <h2>{currentQuestion + 1}問目</h2>

@@ -4,7 +4,7 @@ type Props = {
   nextQuiz: () => void
 }
 
-export const Answer: React.FC<Props> = ({ answer, isCorrect, nextQuiz }) => {
+export const Answer = ({ answer, isCorrect, nextQuiz }: Props) => {
   return (
     <div>
       {isCorrect ? (

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-export const Header: React.FC = () => {
+export const Header = () => {
   return (
     <header>
       <nav>

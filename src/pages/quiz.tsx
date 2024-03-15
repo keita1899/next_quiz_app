@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
-const QuizPage: React.FC = () => {
+const QuizPage = () => {
   const [quizes, setQuizes] = useState<QuizType[]>(quizData)
   const [currentQuestion, setCurrentQuestion] = useState<number>(0)
   const [selectedAnswer, setSelectedAnswer] = useState<string>('')

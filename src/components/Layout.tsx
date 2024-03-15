@@ -6,7 +6,7 @@ type Props = {
   children: ReactNode
 }
 
-export const Layout: React.FC<Props> = ({ children }) => {
+export const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />

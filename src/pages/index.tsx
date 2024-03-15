@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <>
       <Head>
