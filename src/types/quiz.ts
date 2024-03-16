@@ -1,5 +1,5 @@
-type QuizType = {
-  question: string,
-  options: string[],
-  correctAnswer: string,
+export type QuizType = {
+  question: string
+  options: string[]
+  correctAnswer: string
 }
